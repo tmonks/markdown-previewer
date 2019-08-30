@@ -1,4 +1,11 @@
-#input,
-#output {
+#editor,
+#preview {
   height: 500px;
+}
+
+#preview {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+  overflow: scroll;
 }
