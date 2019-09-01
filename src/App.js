@@ -10,9 +10,6 @@ import {
   Col,
   Navbar,
   NavbarBrand,
-  Form,
-  FormGroup,
-  Label,
   Input
 } from "reactstrap";
 
@@ -60,51 +57,40 @@ Here is how you do a list:
 
   handleChange(event) {
     this.setState({ markdown: event.target.value });
-    document.getElementById("preview").innerHTML = marked(
-      DOMPurify.sanitize(event.target.value)
-    );
   }
 
-  componentDidMount() {
-    document.getElementById("preview").innerHTML = marked(this.state.markdown);
+  createHTML() {
+    return {__html: marked(DOMPurify.sanitize(this.state.markdown))}
   }
 
   render() {
     return (
       <Container fluid>
         <ReactFCCTest />
-        <Navbar color="light" light>
+        <Navbar light color="light">
           <NavbarBrand>Markdown Previewer</NavbarBrand>
         </Navbar>
         <Row>
-          <Col sm="6">
-            <Form>
-              <FormGroup>
-                <Label for="editor">Markdown Input</Label>
-                <Input
-                  type="textarea"
-                  name="editor"
-                  id="editor"
-                  value={this.state.markdown}
-                  onChange={this.handleChange}
-                ></Input>
-              </FormGroup>
-            </Form>
+          <Col lg="6">
+            <div class="pane">
+              <div class="pane-title">Input</div>
+              <Input
+                type="textarea"
+                name="editor"
+                id="editor"
+                value={this.state.markdown}
+                onChange={this.handleChange}
+              ></Input>
+            </div>
           </Col>
-          <Col sm="6">
-            <p>Formatted Output</p>
-            <div id="preview"></div>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm="12">
-            <p>Purified output for testing</p>
-            <div style={{ border: "1px solid lightgray" }}>
-              {DOMPurify.sanitize(this.state.markdown)}
+          <Col lg="6">
+            <div class="pane">
+              <div class="pane-title">Preview</div>
+              <div id="preview" dangerouslySetInnerHTML={this.createHTML()}></div>
             </div>
           </Col>
         </Row>
-      </Container>
+     </Container>
     );
   }
 }

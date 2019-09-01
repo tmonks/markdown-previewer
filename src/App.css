@@ -1,6 +1,6 @@
 #editor,
 #preview {
-  height: 500px;
+  height: 100%;
 }
 
 #preview {
@@ -8,4 +8,16 @@
   border-radius: 5px;
   padding: 5px;
   overflow: scroll;
+}
+
+.pane-title {
+  background-color: slategray;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.pane {
+  box-shadow: 0px 5px 10px black;
+  height: 100%;
 }
