@@ -72,8 +72,8 @@ Here is how you do a list:
         </Navbar>
         <Row>
           <Col lg="6">
-            <div class="pane">
-              <div class="pane-title">Input</div>
+            <div className="pane">
+              <div className="pane-title">Input</div>
               <Input
                 type="textarea"
                 name="editor"
@@ -84,8 +84,8 @@ Here is how you do a list:
             </div>
           </Col>
           <Col lg="6">
-            <div class="pane">
-              <div class="pane-title">Preview</div>
+            <div className="pane">
+              <div className="pane-title">Preview</div>
               <div id="preview" dangerouslySetInnerHTML={this.createHTML()}></div>
             </div>
           </Col>
