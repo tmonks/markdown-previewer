@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import marked from "marked";
-import ReactFCCTest from "react-fcctest";
+// import ReactFCCTest from "react-fcctest";
 import DOMPurify from "dompurify"; // used to clean user input and prevent XSS attacks
 import { Container, Row, Col, Navbar, NavbarBrand, Input } from "reactstrap";
 import INITIAL_MARKDOWN from "./markdown"; // sample markdown initially loaded in editor
@@ -29,14 +29,11 @@ class App extends React.Component {
   render() {
     return (
       <Container fluid>
-        <ReactFCCTest />
+        {/* <ReactFCCTest /> */}
         <Header />
         <Row>
           <Col lg="6">
-            <EditorPane
-              markdown={this.state.markdown}
-              handleChange={this.handleChange}
-            />
+            <EditorPane markdown={this.state.markdown} handleChange={this.handleChange} />
           </Col>
           <Col lg="6">
             <PreviewPane markdown={this.state.markdown} />
